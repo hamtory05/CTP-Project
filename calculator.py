@@ -1,24 +1,29 @@
 # [ 계산기 프로그램 ]
 
 # 덧셈
-def puls():
-    pass
+def plus(x, answer):
+    answer += x
+    return answer
 
 # 뺼셈
-def minus():
-    pass
+def minus(x, answer):
+    answer -= x
+    return answer
 
 # 곱하기
-def time():
-    pass
+def time(x, answer):
+    answer *= x
+    return answer
 
 # 나누기
-def div():
-    pass
+def div(x, answer):
+    answer /= x
+    return answer
 
 # 나머지
-def rest():
-    pass
+def rest(x, answer):
+    answer %= x
+    return answer
 
 # [ MAIN CODE ]
 
@@ -31,29 +36,47 @@ print("1. 연산자는 '+, -, *, /, %' 만 존재합니다.")
 print("2. 잘못된 연산자 입력시 다시 연산자를 입력할 수 있습니다.")
 print("3. 연산자 입력칸에 '=' 입력시 값이 출력됩니다.")
 print("4. 연산자 입력칸에 'AC' 입력시 값이 초기화 됩니다.")
+print()
 
-answer = 0
+print("[ 계산기 실행 ]")
+answer = int(input("숫자를 입력해주세요 : "))
 
 while True:
-    n1 = int(input("숫자를 입력해주세요 : "))
     shape = input("연산자를 입력해주세요 : ")
 
     # 무한루프 종료 조건
     if shape == "=":
         print("[", answer, "]")
         break
-    
+
+    n1 = int(input("숫자를 입력해주세요 : "))
+
+    # 예외처리
+    if shape != "=" and shape != "+" and shape != "-" and shape != "*" and shape != "/" and shape != "%" and shape != "AC":
+        print("연산자가 아닙니다.")
+        shape = input("연산자를 입력해주세요 : ")
+ 
     if shape == "+":
-        pass
+        answer = plus(n1, answer)
+        print("현재 값 :",  answer)
+
     elif shape == "-":
-        pass
+        answer = minus(n1, answer)
+        print("현재 값 :",  answer)
+
     elif shape == "*":
-        pass
+        answer = time(n1, answer)
+        print("현재 값 :",  answer)
+
     elif shape == "/":
-        pass
+        answer = div(n1, answer)
+        print("현재 값 :",  answer)
+
     elif shape == "%":
-        pass
+        answer = rest(n1, answer)
+        print("현재 값 :",  answer)
+    
     elif shape == "AC":
-        pass
+        answer = 0
 
 
