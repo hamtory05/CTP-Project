@@ -3,9 +3,10 @@
 # < 예제 활용한 것 >
 # 1. 137p 5번 : 연산자를 확인하고 그의 맞는 계산하기
 # 2. 168p 15번 : 교수님이 알려주신 while True를 사용하여 메인 코드를 작성
-# 3. 196p 8, 9, 10번 : 함수 매개변수 사용법, return 사용법을 활용하여 작성
-# 4. 201p 8번 : 연산자 예외처리를 활용하여 코드를 작성
-# 5. 전에 배운 누적합 활용해서 answer에 계속 값을 누적시킴
+# 3. 
+# 4. 196p 8, 9, 10번 : 함수 매개변수 사용법, return 사용법을 활용하여 작성
+# 5. 201p 8번 : 연산자 예외처리를 활용하여 코드를 작성
+# 6. 전에 배운 누적합 활용해서 answer에 계속 값을 누적시킴
 
 # ==========[ MAIN CODE ]==========
 
@@ -38,13 +39,22 @@ def rest(x, total):
     total %= x
     return total
 
+# < 제곱 >
+def square(x, total):
+    # 누적값을 따로 저장
+    tmp = total
+    for i in range(int(x) - 1): # x를 float로 입력받고 있어서 int로 바꿔서 for문을 작성함.
+        total *= tmp # 누적값을 제곱하는 과정
+    return total
+
+
 # < 계산기 프로그램 설명 >
 print("[ H A N N A M   C A L C U L A T O R ]")
 print("한남대 계산기 프로그램에 오신 것을 환영합니다.")
 print()
 
 print("[ 계산기 설명 ]")
-print("1. 연산자는 '+, -, *, /, %' 만 존재합니다.")
+print("1. 연산자는 '+, -, *, /, %, **' 만 존재합니다.")
 print("2. 잘못된 연산자 입력시 다시 연산자를 입력할 수 있습니다.")
 print("3. 연산자 입력칸에 '=' 입력시 값이 출력됩니다.")
 print("4. 연산자 입력칸에 'AC' 입력시 값이 초기화 됩니다.")
@@ -60,7 +70,7 @@ answer = float(input("숫자를 입력해주세요 : "))
 
 # 무한 루프 ('=' 을 입력할 때까지 반복)
 while True:
-    # 연산자 입력 (+, -, *, /, %, =, AC)
+    # 연산자 입력 (+, -, *, /, %, =, **, AC)
     shape = input("연산자를 입력해주세요 : ")
 
     # 무한루프 종료 조건
@@ -69,11 +79,11 @@ while True:
         break 
 
     # 연산자 예외처리
-    if shape != "=" and shape != "+" and shape != "-" and shape != "*" and shape != "/" and shape != "%" and shape != "AC":
+    if shape != "=" and shape != "+" and shape != "-" and shape != "*" and shape != "/" and shape != "%" and shape != "**" and shape != "AC":
         # 무한 루프 
         while True:
             # 정확한 연산자 입력시 무한루프 탈출
-            if shape == "=" or shape == "+" or shape == "-" or shape == "*" or shape == "/" or shape == "%" or shape == "AC":
+            if shape == "=" or shape == "+" or shape == "-" or shape == "*" or shape == "/" or shape == "%" or shape == "**" or shape == "AC":
                 break
             print("연산자가 아닙니다.")
             shape = input("연산자를 입력해주세요 : ")
@@ -109,3 +119,7 @@ while True:
     elif shape == "%": # 나머지
         answer = rest(n1, answer)
         print("현재 값 :",  answer)
+
+    elif shape == "**": # 제곱
+        answer = square(n1, answer)
+        print("현재 값 :", answer)
