@@ -122,4 +122,4 @@ while True:
 
     elif shape == "**": # 제곱
         answer = square(n1, answer)
-        print("현재 값 :", answer)
+        print("현재 값 :", answer)  
