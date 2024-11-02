@@ -77,7 +77,7 @@ while True:
     if shape == "=":
         print("[", answer, "]")
         break 
-
+  
     # 연산자 예외처리
     if shape != "=" and shape != "+" and shape != "-" and shape != "*" and shape != "/" and shape != "%" and shape != "**" and shape != "AC":
         # 무한 루프 
