@@ -85,8 +85,8 @@ while True:
         # answer를 초기화 했으므로 answer에 처음 숫자를 다시 저장
         answer = float(input("숫자를 입력해주세요 : "))
         continue
-
-    # 연산할 숫자 입력
+  
+    # 연산할 숫자 입력 
     n1 = float(input("숫자를 입력해주세요 : "))
 
     # 계산 
