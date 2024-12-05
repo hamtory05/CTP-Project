@@ -26,4 +26,3 @@ File Name = Calculator.py
 ```
 <br>
 
-<h2 align="center"> 📄기말 과제📄 </h2>
